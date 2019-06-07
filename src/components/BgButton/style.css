@@ -1,0 +1,83 @@
+.bg-button {
+  display: inline-flex;
+  margin-bottom: 0;
+  text-align: center;
+  justify-content: center;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  border-radius: var(--bg-border-radius);
+  padding: 0 32px;
+  height: 44px;
+  font-size: 16px;
+  position: relative;
+  letter-spacing: 0.5px;
+  align-items: center;
+  transition: box-shadow 0.1s ease-in-out;
+  box-shadow: 0px 0px 0px 0px rgba(209, 219, 229, 0.26);
+}
+
+.bg-button:focus {
+  outline: 0;
+  box-shadow: 0px 0px 0px 3px rgba(209, 219, 229, 1);
+}
+
+.bg-button__icon {
+  position: relative;
+  height: 18px;
+}
+
+.bg-button__icon--pre {
+  margin-right: 10px;
+}
+.bg-button__icon--post {
+  margin-left: 10px;
+}
+
+.bg-button--primary {
+  color: #fff;
+  background: var(--bg-primary-color);
+  border-color: var(--bg-primary-color);
+}
+
+.bg-button--primary:hover {
+  background: var(--bg-primary-hover);
+  border-color: var(--bg-primary-hover);
+}
+
+.bg-button--primary.bg-button--disabled {
+  cursor: not-allowed;
+  color: #81acd9;
+}
+
+.bg-button--primary.bg-button--disabled:hover {
+  background: var(--bg-primary-color);
+  border-color: var(--bg-primary-color);
+}
+
+.bg-button--secondary {
+  color: var(--bg-primary-color);
+  border-color: var(--bg-primary-color);
+  background-color: transparent;
+}
+.bg-button--secondary:hover {
+  color: var(--bg-primary-hover);
+  border-color: var(--bg-primary-hover);
+}
+
+.bg-button--secondary.bg-button--disabled {
+  color: #abc8e6;
+  border-color: #abc8e6;
+  cursor: not-allowed;
+}
+
+.bg-button--secondary.bg-button--disabled:hover {
+  color: #abc8e6;
+  border-color: #abc8e6;
+}
+
+.bg-button--is-loading {
+  opacity: 0;
+}

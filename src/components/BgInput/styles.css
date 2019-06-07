@@ -1,0 +1,39 @@
+.bg-input {
+  margin-bottom: 20px;
+}
+
+.bg-input__input {
+  flex: 1;
+  outline: 0px;
+  padding: 10px;
+  width: 100%;
+  border-radius: var(--bg-border-radius);
+  border: 1px solid var(--bg-color-gray-light);
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.25s ease-in-out;
+  min-height: 44px;
+  resize: none;
+}
+
+.bg-input__input:focus {
+  border: 1px solid var(--bg-primary-color);
+}
+
+.bg-input__input-container {
+  position: relative;
+}
+
+.bg-input__input::placeholder {
+  color: var(--bg-color-gray-dark);
+  font-size: 16px;
+  opacity: 1;
+}
+
+.bg-input.bg-input--error .bg-input__input {
+  border: 1px solid var(--bg-color-error);
+}
+
+.bg-input.bg-input--disabled .bg-input__input {
+  cursor: not-allowed;
+}
