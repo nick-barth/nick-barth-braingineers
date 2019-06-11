@@ -1,0 +1,132 @@
+{
+  "Headline": {
+    "EffectiveDate": "2019-06-12T02:00:00+02:00",
+    "EffectiveEpochDate": 1560297600,
+    "Severity": 3,
+    "Text": "Rain, some heavy, to affect the area from late Tuesday night into Wednesday morning",
+    "Category": "rain",
+    "EndDate": "2019-06-12T14:00:00+02:00",
+    "EndEpochDate": 1560340800,
+    "MobileLink": "http://m.accuweather.com/en/nl/amsterdam/249758/extended-weather-forecast/249758?lang=en-us",
+    "Link": "http://www.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?lang=en-us"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2019-06-11T07:00:00+02:00",
+      "EpochDate": 1560229200,
+      "Temperature": {
+        "Minimum": { "Value": 51.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 65.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 14,
+        "IconPhrase": "Partly sunny w/ showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=1&lang=en-us",
+      "Link": "http://www.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=1&lang=en-us"
+    },
+    {
+      "Date": "2019-06-12T07:00:00+02:00",
+      "EpochDate": 1560315600,
+      "Temperature": {
+        "Minimum": { "Value": 53.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 64.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 18,
+        "IconPhrase": "Rain",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 34,
+        "IconPhrase": "Mostly clear",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=2&lang=en-us",
+      "Link": "http://www.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=2&lang=en-us"
+    },
+    {
+      "Date": "2019-06-13T07:00:00+02:00",
+      "EpochDate": 1560402000,
+      "Temperature": {
+        "Minimum": { "Value": 55.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 67.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Intermittent clouds",
+        "HasPrecipitation": false
+      },
+      "Night": {
+        "Icon": 35,
+        "IconPhrase": "Partly cloudy",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=3&lang=en-us",
+      "Link": "http://www.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=3&lang=en-us"
+    },
+    {
+      "Date": "2019-06-14T07:00:00+02:00",
+      "EpochDate": 1560488400,
+      "Temperature": {
+        "Minimum": { "Value": 59.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 74.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Intermittent clouds",
+        "HasPrecipitation": false
+      },
+      "Night": {
+        "Icon": 12,
+        "IconPhrase": "Showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=4&lang=en-us",
+      "Link": "http://www.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=4&lang=en-us"
+    },
+    {
+      "Date": "2019-06-15T07:00:00+02:00",
+      "EpochDate": 1560574800,
+      "Temperature": {
+        "Minimum": { "Value": 55.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 71.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 17,
+        "IconPhrase": "Partly sunny w/ t-storms",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Moderate"
+      },
+      "Night": {
+        "Icon": 38,
+        "IconPhrase": "Mostly cloudy",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=5&lang=en-us",
+      "Link": "http://www.accuweather.com/en/nl/amsterdam/249758/daily-weather-forecast/249758?day=5&lang=en-us"
+    }
+  ]
+}

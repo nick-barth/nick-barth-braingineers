@@ -1,0 +1,14 @@
+.BgCard {
+  border-radius: var(--bg-border-radius);
+  border: 1px solid var(--bg-color-gray-light);
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.BgCard__date {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}

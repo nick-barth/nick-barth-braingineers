@@ -1,6 +1,6 @@
 <template>
   <div :class="classes">
-    <bg-label v-bind="{ info, id, required }" v-if="label">{{ label }}</bg-label>
+    <label v-if="label">{{ label }}</label>
     <div class="bg-input__input-container">
       <textarea
         v-if="tag === 'textarea'"
