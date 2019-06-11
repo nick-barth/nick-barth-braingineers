@@ -1,6 +1,10 @@
-.home__forecast {
+.Home__forecast {
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
   margin: auto;
+}
+
+.Home__chart {
+  width: 600px;
 }

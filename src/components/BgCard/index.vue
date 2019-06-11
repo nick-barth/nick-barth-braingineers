@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <router-link v-bind:to="`day/${formatDate.toLowerCase()}`">
     <div class="BgCard">
       <h2 class="BgCard__date">{{formatDate}}</h2>
       <img
@@ -13,7 +13,7 @@
         <div class="BgCard__temp BgCard__temp--max">{{maxTemp}}</div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped>

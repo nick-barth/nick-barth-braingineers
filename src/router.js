@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home";
-import Day from "./views/About";
+import Day from "./views/Day";
 
 Vue.use(Router);
 
