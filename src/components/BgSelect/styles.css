@@ -1,0 +1,51 @@
+.BgSelect {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.BgSelect__input {
+  flex: 1;
+  outline: 0px;
+  height: 100%;
+  padding: 0 10px;
+  width: 100%;
+  border-radius: var(--bg-border-radius);
+  border: 1px solid var(--bg-color-gray-light);
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.5s;
+  height: 44px;
+  -webkit-appearance: none;
+  background-color: white;
+}
+
+.BgSelect__input:focus {
+  border: 1px solid var(--bg-primary-color);
+}
+
+.BgSelect__placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  color: var(--bg-color-gray-dark);
+}
+
+.BgSelect__input-container {
+  position: relative;
+}
+
+.BgSelect__input::placeholder {
+  color: var(--bg-color-gray-dark);
+  font-size: 16px;
+  opacity: 1;
+}
+
+.BgSelect--error .BgSelect__input {
+  border: 1px solid var(--bg-color-error);
+}
+
+.BgSelect--disabled .BgSelect__input {
+  cursor: not-allowed;
+}

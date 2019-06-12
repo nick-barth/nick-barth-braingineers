@@ -1,0 +1,9 @@
+.About__forecast-container {
+  height: 400px;
+}
+
+.About__time-toggle {
+  max-width: 200px;
+  margin: auto;
+  margin-top: 20px;
+}
