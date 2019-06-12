@@ -21,9 +21,19 @@
           v-for="forecast in this.forecasts"
         ></bg-card>
       </div>
-      <h2>Temperature over the Week</h2>
-      <div class="Home__chart">
-        <bg-line-chart :chartdata="chartData" :options="{responsive: true}"/>
+      <div class="Home__charts">
+        <div class="Home__chart-container">
+          <h2>Temperature</h2>
+          <div class="Home__chart">
+            <bg-line-chart :chartData="chartData" :options="{responsive: true}"/>
+          </div>
+        </div>
+        <div class="Home__chart-container">
+          <h2>Hours of Sunlight</h2>
+          <div class="Home__chart">
+            <bg-line-chart :chartData="chartData" :options="{responsive: true}"/>
+          </div>
+        </div>
       </div>
     </div>
     <div v-else class="Home__please-search">Please search for a location</div>
@@ -72,6 +82,7 @@ export default {
     this.locationKey = 222;
     this.forecasts = forcastData.DailyForecasts;
     this.headline = forcastData.Headline.Text;
+    console.log(this.forecasts);
 
     this.chartData = {
       labels: this.forecasts.map(day => {

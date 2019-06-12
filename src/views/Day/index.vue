@@ -12,10 +12,11 @@
           ></bg-select>
         </div>
         <bg-line-chart
-          :chartdata="chartData"
+          :chartData="chartData"
           :options="{responsive: true, maintainAspectRatio: false}"
         />
       </div>
+      <bg-loader :dark="true" v-else/>
     </div>
   </div>
 </template>
@@ -32,6 +33,7 @@ import BgSelect from "@/components/BgSelect";
 import BgButton from "@/components/BgButton";
 import BgInput from "@/components/BgInput";
 import BgCard from "@/components/BgCard";
+import BgLoader from "@/components/BgLoader";
 import BgLineChart from "@/components/BgLineChart";
 
 import forcastData from "../../forcastSingle.json";
@@ -43,7 +45,8 @@ export default {
     BgSelect,
     BgInput,
     BgCard,
-    BgLineChart
+    BgLineChart,
+    BgLoader
   },
   data: function() {
     return {

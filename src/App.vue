@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h1>The Weather</h1>
+    <h1>
+      <a href="/">The Weather</a>
+    </h1>
     <router-view/>
   </div>
 </template>
