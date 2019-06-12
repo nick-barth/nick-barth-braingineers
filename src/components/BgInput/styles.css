@@ -8,7 +8,7 @@
   padding: 10px;
   width: 100%;
   border-radius: var(--bg-border-radius);
-  border: 1px solid var(--bg-color-gray-light);
+  border: 1px solid var(--bg-color-line);
   box-sizing: border-box;
   font-size: 16px;
   transition: all 0.25s ease-in-out;

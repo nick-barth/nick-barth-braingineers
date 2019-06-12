@@ -1,11 +1,11 @@
 <template>
-  <div :class="classes">
-    <label v-if="label">{{ label }}</label>
+  <div class="bg-input">
+    <label v-if="label" :for="name">{{ label }}</label>
     <div class="bg-input__input-container">
       <textarea
         v-if="tag === 'textarea'"
         class="bg-input__input"
-        v-bind="{ name, id, placeholder, disabled, readonly }"
+        v-bind="{ name, id: name, placeholder }"
         v-model="input"
         @blur="$emit('blur', input)"
         ref="input"
@@ -14,7 +14,7 @@
       <input
         v-else
         class="bg-input__input"
-        v-bind="{ name, id, placeholder, type, disabled, readonly }"
+        v-bind="{ name, id: name, placeholder, type }"
         v-model="input"
         @blur="$emit('blur', input)"
         ref="input"
@@ -47,6 +47,14 @@ export default {
     rows: {
       type: Number,
       default: 1
+    },
+    name: {
+      type: String,
+      default: "TextInput"
+    },
+    label: {
+      type: String,
+      default: "Search"
     }
   },
   watch: {

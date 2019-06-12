@@ -8,16 +8,9 @@ export default {
       default: null
     },
     options: {
-      type: Object,
-      default: null
+      type: Object
     }
   },
-  date: () => ({
-    options: {
-      responsive: true,
-      maintainAspectRatio: true
-    }
-  }),
   mounted() {
     this.renderChart(this.chartdata, this.options);
   }

@@ -1,22 +1,33 @@
 <template>
-  <div>
-    <div class="Home">
-      <h1>Welcome to the Weather App</h1>
+  <div class="Home">
+    <div class="Home__search-container">
+      <h2>Search</h2>
+      <div class="Nav__location-select">
+        <bg-input @change="updateSearchValue" label="Search by location" placeholder="Amsterdam"/>
+        <bg-button :isLoading="isSearching" @click="fetchSearch" text="Search"></bg-button>
+      </div>
+    </div>
+    <div v-if="this.forecasts.length > 0" class="Home__forecast-container">
+      <h2>{{this.city}}</h2>
+      <h2>{{this.headline}}</h2>
       <div class="Home__forecast">
-        <BgCard
+        <bg-card
           v-bind:key="forecast.date"
           :date="forecast.Date"
           :maxTemp="forecast.Temperature.Maximum.Value"
-          :avgTemp="forecast.Temperature.Maximum.Value + forecast.Temperature.Minimum.Value / 2"
-          :minTemp="forecast.Temperature.Maximum.Value"
+          :minTemp="forecast.Temperature.Minimum.Value"
           :icon="forecast.Day.Icon"
-          v-for="forecast in this.forecasts.DailyForecasts"
-        ></BgCard>
+          :locationKey="locationKey"
+          v-for="forecast in this.forecasts"
+        ></bg-card>
       </div>
+      <h2>Temperature over the Week</h2>
       <div class="Home__chart">
-        <BgLineChart :chartdata="chartData"/>
+        <bg-line-chart :chartdata="chartData" :options="{responsive: true}"/>
       </div>
     </div>
+    <div v-else class="Home__please-search">Please search for a location</div>
+    <bg-loader :dark="true" v-if="isLoading"/>
   </div>
 </template>
 
@@ -26,9 +37,11 @@
 
 <script>
 import axios from "axios";
-import BgButton from "@/components/BgButton";
-import BgInput from "@/components/BgInput";
+import moment from "moment";
 import BgCard from "@/components/BgCard";
+import BgButton from "@/components/BgButton";
+import BgLoader from "@/components/BgLoader";
+import BgInput from "@/components/BgInput";
 import BgLineChart from "@/components/BgLineChart";
 
 import forcastData from "../../forcastdata.json";
@@ -36,34 +49,107 @@ import forcastData from "../../forcastdata.json";
 export default {
   name: "home",
   components: {
+    BgCard,
     BgButton,
     BgInput,
-    BgCard,
+    BgLoader,
     BgLineChart
   },
   data: function() {
     return {
+      searchValue: "",
+      locationKey: null,
       forecasts: [],
-      chartData: {
-        datasets: [{ label: "Temperatures", data: [100, 90, 120, 60, 80] }]
-      }
+      chartData: {},
+      location: null,
+      isLoading: false,
+      isSearching: false,
+      city: ""
+    };
+  },
+  mounted() {
+    this.city = "amsterdo";
+    this.locationKey = 222;
+    this.forecasts = forcastData.DailyForecasts;
+    this.headline = forcastData.Headline.Text;
+
+    this.chartData = {
+      labels: this.forecasts.map(day => {
+        return moment(day.Date).format("ddd");
+      }),
+      datasets: [
+        {
+          label: "High",
+          data: this.forecasts.map(day => {
+            return { y: day.Temperature.Maximum.Value, x: day.Date };
+          }),
+          backgroundColor: "rgba(46, 118, 192, 0.45)"
+        },
+        {
+          label: "Low",
+          data: this.forecasts.map(day => {
+            return { y: day.Temperature.Minimum.Value, x: day.Date };
+          }),
+          backgroundColor: "rgba(46, 118, 192, 0.75)"
+        }
+      ]
     };
   },
   methods: {
+    updateSearchValue(value) {
+      this.searchValue = value;
+    },
     fetchData() {
-      // axios
-      //   .get(
-      //     "http://dataservice.accuweather.com/forecasts/v1/hourly/120hour/249758?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba"
-      //   )
-      //   .then(response => {
-      //     //console.log(response);
-      //   });
-      this.forecasts = forcastData;
-      console.log(forcastData);
+      this.isLoading = true;
+      axios
+        .get(
+          `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${
+            this.locationKey
+          }?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&details=true`
+        )
+        .then(response => {
+          this.forecasts = response.data.DailyForecasts;
+          this.headline = response.data.Headline.Text;
+
+          this.chartData = {
+            labels: this.forecasts.map(day => {
+              return moment(day.Date).format("ddd");
+            }),
+            datasets: [
+              {
+                label: "High",
+                data: this.forecasts.map(day => {
+                  return { y: day.Temperature.Maximum.Value, x: day.Date };
+                })
+              },
+              {
+                label: "Low",
+                data: this.forecasts.map(day => {
+                  return { y: day.Temperature.Minimum.Value, x: day.Date };
+                })
+              }
+            ]
+          };
+          this.isLoading = false;
+        });
+    },
+    fetchSearch() {
+      this.isSearching = true;
+      axios
+        .get(
+          ` http://dataservice.accuweather.com/locations/v1/cities/search?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&q=${
+            this.searchValue
+          }`
+        )
+        .then(response => {
+          const city = response.data[0];
+          this.city = city.LocalizedName;
+          this.locationKey = city.Key;
+          this.cityName = city.LocalizedName;
+          this.isSearching = false;
+          this.fetchData();
+        });
     }
-  },
-  mounted() {
-    this.fetchData();
   }
 };
 </script>

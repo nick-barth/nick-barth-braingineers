@@ -1,16 +1,23 @@
 <template>
-  <router-link v-bind:to="`day/${formatDate.toLowerCase()}`">
-    <div class="BgCard">
-      <h2 class="BgCard__date">{{formatDate}}</h2>
-      <img
-        class="BgCard__icon"
-        :src="`https://developer.accuweather.com/sites/default/files/${stolenIcon}-s.png`"
-        alt="weathericon"
-      >
-      <div class="BgCard__content-container">
-        <div class="BgCard__temp BgCard__temp--min">{{minTemp}}</div>
-        <div class="BgCard__temp BgCard__temp--avg">{{avgTemp}}</div>
-        <div class="BgCard__temp BgCard__temp--max">{{maxTemp}}</div>
+  <router-link
+    class="BgCard"
+    v-bind:to="`day/${formatDate.toLowerCase()}/?location=${locationKey}`"
+  >
+    <h3 class="BgCard__date">{{formatDate}}</h3>
+    <img
+      class="BgCard__icon"
+      :src="`https://developer.accuweather.com/sites/default/files/${stolenIcon}-s.png`"
+      alt="weathericon"
+    >
+    <div class="BgCard__content-container">
+      <div class="BgCard__temp BgCard__temp--min">
+        <span class="BgCard__temp--label">lo:</span>
+        {{minTemp}}
+      </div>
+      <div class="BgCard__temp BgCard__temp--avg">{{averageTemp}}</div>
+      <div class="BgCard__temp BgCard__temp--max">
+        <span class="BgCard__temp--label">hi:</span>
+        {{maxTemp}}
       </div>
     </div>
   </router-link>
@@ -29,9 +36,9 @@ export default {
   props: {
     maxTemp: Number,
     minTemp: Number,
-    avgTemp: Number,
     icon: Number,
-    date: String
+    date: String,
+    locationKey: Number
   },
   computed: {
     stolenIcon: function() {
@@ -39,6 +46,9 @@ export default {
     },
     formatDate: function() {
       return moment(this.date).format("dddd");
+    },
+    averageTemp: function() {
+      return Math.round((this.maxTemp + this.minTemp) / 2);
     }
   },
   components: {

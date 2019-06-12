@@ -15,6 +15,7 @@
   position: relative;
   letter-spacing: 0.5px;
   align-items: center;
+  width: 100%;
   transition: box-shadow 0.1s ease-in-out;
   box-shadow: 0px 0px 0px 0px rgba(209, 219, 229, 0.26);
 }
