@@ -9,7 +9,7 @@
     </div>
     <div v-if="this.forecasts.length > 0" class="Home__forecast-container">
       <h2>{{this.city}}</h2>
-      <h2>{{this.headline}}</h2>
+      <p>{{this.headline}}</p>
       <div class="Home__forecast">
         <bg-card
           v-bind:key="forecast.date"
