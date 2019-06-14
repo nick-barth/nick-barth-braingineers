@@ -30,8 +30,6 @@
 import axios from "axios";
 import moment from "moment";
 import BgSelect from "@/components/BgSelect";
-import BgButton from "@/components/BgButton";
-import BgInput from "@/components/BgInput";
 import BgCard from "@/components/BgCard";
 import BgLoader from "@/components/BgLoader";
 import BgLineChart from "@/components/BgLineChart";
@@ -41,10 +39,7 @@ import forcastData from "../../forcastSingle.json";
 export default {
   name: "Day",
   components: {
-    BgButton,
     BgSelect,
-    BgInput,
-    BgCard,
     BgLineChart,
     BgLoader
   },
@@ -82,15 +77,15 @@ export default {
     fetchData() {
       axios
         .get(
-          `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${
+          `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${
             this.$route.query.location
           }?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&details=true`
         )
         .then(response => {
           console.log(response);
-          this.forecast = response.data;
+          this.forecasts = response.data;
+          this.formatChartData();
         });
-      this.formatChartData();
     }
   },
   mounted() {

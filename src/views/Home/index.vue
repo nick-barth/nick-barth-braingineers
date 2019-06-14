@@ -87,7 +87,7 @@ export default {
       this.isLoading = true;
       axios
         .get(
-          `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${
+          `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${
             this.locationKey
           }?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&details=true`
         )
@@ -137,7 +137,7 @@ export default {
       this.isSearching = true;
       axios
         .get(
-          ` http://dataservice.accuweather.com/locations/v1/cities/search?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&q=${
+          ` https://dataservice.accuweather.com/locations/v1/cities/search?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&q=${
             this.searchValue
           }`
         )
