@@ -80,17 +80,16 @@ export default {
       this.formatChartData();
     },
     fetchData() {
-      // axios
-      //   .get(
-      //     `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${
-      //       this.$route.query.location
-      //     }?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&details=true`
-      //   )
-      //   .then(response => {
-      //     console.log(response);
-      //     this.forecast = response.data;
-      //   });
-      this.forecasts = forcastData;
+      axios
+        .get(
+          `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${
+            this.$route.query.location
+          }?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&details=true`
+        )
+        .then(response => {
+          console.log(response);
+          this.forecast = response.data;
+        });
       this.formatChartData();
     }
   },
