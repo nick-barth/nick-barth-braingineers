@@ -25,13 +25,13 @@
         <div class="Home__chart-container">
           <h2>Temperature</h2>
           <div class="Home__chart">
-            <bg-line-chart :chartData="chartData" :options="{responsive: true}"/>
+            <bg-line-chart :chartData="lineChartData" :options="{responsive: true}"/>
           </div>
         </div>
         <div class="Home__chart-container">
           <h2>Hours of Sunlight</h2>
           <div class="Home__chart">
-            <bg-line-chart :chartData="chartData" :options="{responsive: true}"/>
+            <bg-bar-chart :chartData="barChartData" :options="{responsive: true}"/>
           </div>
         </div>
       </div>
@@ -53,6 +53,7 @@ import BgButton from "@/components/BgButton";
 import BgLoader from "@/components/BgLoader";
 import BgInput from "@/components/BgInput";
 import BgLineChart from "@/components/BgLineChart";
+import BgBarChart from "@/components/BgBarChart";
 
 import forcastData from "../../forcastdata.json";
 
@@ -63,7 +64,8 @@ export default {
     BgButton,
     BgInput,
     BgLoader,
-    BgLineChart
+    BgLineChart,
+    BgBarChart
   },
   data: function() {
     return {
@@ -75,35 +77,6 @@ export default {
       isLoading: false,
       isSearching: false,
       city: ""
-    };
-  },
-  mounted() {
-    this.city = "amsterdo";
-    this.locationKey = 222;
-    this.forecasts = forcastData.DailyForecasts;
-    this.headline = forcastData.Headline.Text;
-    console.log(this.forecasts);
-
-    this.chartData = {
-      labels: this.forecasts.map(day => {
-        return moment(day.Date).format("ddd");
-      }),
-      datasets: [
-        {
-          label: "High",
-          data: this.forecasts.map(day => {
-            return { y: day.Temperature.Maximum.Value, x: day.Date };
-          }),
-          backgroundColor: "rgba(46, 118, 192, 0.45)"
-        },
-        {
-          label: "Low",
-          data: this.forecasts.map(day => {
-            return { y: day.Temperature.Minimum.Value, x: day.Date };
-          }),
-          backgroundColor: "rgba(46, 118, 192, 0.75)"
-        }
-      ]
     };
   },
   methods: {
@@ -122,7 +95,7 @@ export default {
           this.forecasts = response.data.DailyForecasts;
           this.headline = response.data.Headline.Text;
 
-          this.chartData = {
+          this.lineChartData = {
             labels: this.forecasts.map(day => {
               return moment(day.Date).format("ddd");
             }),
@@ -131,13 +104,29 @@ export default {
                 label: "High",
                 data: this.forecasts.map(day => {
                   return { y: day.Temperature.Maximum.Value, x: day.Date };
-                })
+                }),
+                backgroundColor: "rgba(46, 118, 192, 0.45)"
               },
               {
                 label: "Low",
                 data: this.forecasts.map(day => {
                   return { y: day.Temperature.Minimum.Value, x: day.Date };
-                })
+                }),
+                backgroundColor: "rgba(46, 118, 192, 0.75)"
+              }
+            ]
+          };
+          this.barChartData = {
+            labels: this.forecasts.map(day => {
+              return moment(day.Date).format("ddd");
+            }),
+            datasets: [
+              {
+                label: "Hours of Sunlight",
+                data: this.forecasts.map(day => {
+                  return { y: day.HoursOfSun, x: day.Date };
+                }),
+                backgroundColor: "rgba(46, 118, 192, 0.75)"
               }
             ]
           };

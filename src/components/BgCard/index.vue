@@ -38,7 +38,7 @@ export default {
     minTemp: Number,
     icon: Number,
     date: String,
-    locationKey: Number
+    locationKey: String
   },
   computed: {
     stolenIcon: function() {

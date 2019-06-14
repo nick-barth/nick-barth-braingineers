@@ -29,8 +29,14 @@ export default {
     value: {
       default: ""
     },
-    label: "",
-    name: "",
+    label: {
+      type: String,
+      value: ""
+    },
+    name: {
+      type: String,
+      value: ""
+    },
     options: Array
   },
   watch: {
