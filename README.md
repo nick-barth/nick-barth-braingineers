@@ -12,7 +12,7 @@ npm install
 npm run serve
 ```
 
-All temperatures are measured in Farenheit, to highten the feeling of our cultural differences.
+All temperatures are measured in Farenheit, good luck deciding if jij draagt en jas.
 
 Thanks for the fun challenge! Why this weather API is returning class cased json i will never know, but other than that, it works!
 
