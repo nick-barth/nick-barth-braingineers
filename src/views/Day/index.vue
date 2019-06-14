@@ -82,7 +82,6 @@ export default {
           }?apikey=AHzBgmQPIbJ2fUBKNGvuWbzNguOwcHba&details=true`
         )
         .then(response => {
-          console.log(response);
           this.forecasts = response.data;
           this.formatChartData();
         });
