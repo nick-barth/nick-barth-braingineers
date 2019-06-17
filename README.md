@@ -23,6 +23,5 @@ Things I did poorly/didn't do
 - error handling, don't mess up
 - pressing enter doesn't search
 - state management, i just passed the location key via query param, which would lead to extra reqs more likely, so I think this is a good use case for global management (rare)
-- Bothered learning vue router, I used a link on the `<h1>The Weather</h1>` because it's outside of the router-view
 - App layout
-- Css - didn't bother installing a sass loader
+- vanilla css - didn't bother installing a sass loader
