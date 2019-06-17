@@ -14,7 +14,7 @@ npm run serve
 
 All temperatures are measured in Farenheit, good luck deciding of je een jas draagt.
 
-Thanks for the fun challenge! Why this weather API is returning class cased json i will never know, but other than that, it works!
+Thanks for the fun challenge! Why this weather API is returning class cased json i will never know, but other than that, it works!  I don't have a ton of experience in Vue, so I can't wait for some feedback.
 
 The api I selected does allow me to grab upcoming days by hour, only the next 12 hours of days, so I'm calling it for today everytime, but I would handle it by taking the day out of the url and matching it with the array of days.
 
